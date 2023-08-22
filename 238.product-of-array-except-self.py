@@ -56,9 +56,6 @@ from typing import List
 # 2, 2, 3, 4
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        left = [1]
-        right = [1]
-
         res = [1]
 
         for i in range(len(nums) - 1):
