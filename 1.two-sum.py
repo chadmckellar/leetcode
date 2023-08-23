@@ -58,10 +58,10 @@
 # Follow-up: Can you come up with an algorithm that is less than O(n^2) time
 # complexity?
 #
-
+from typing import List
 # @lc code=start
 class Solution:
-    def twoSum(self, nums: list[int], target: int):
+    def twoSum(self, nums: List[int], target: int):
         num_set = set()
         for num in nums:
             if target - num in num_set:
