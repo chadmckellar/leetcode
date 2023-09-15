@@ -30,7 +30,7 @@
 # Example 1:
 #
 #
-# Input: numbers = [2,7,11,15], target = 9
+# Input: numbers = [2,7,11,15,40,140,142], target = 55
 # Output: [1,2]
 # Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We
 # return [1, 2].
@@ -70,23 +70,15 @@ from typing import List
 # @lc code=start
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        def binarySearch(list, target, low, high):
-            mid = low + (high - low)//2
-            if high >= low:
-                if list[mid] == target:
-                    return mid
-                elif list[mid] > target:
-                    return binarySearch(list, target, low, mid-1)
-                else:
-                    return binarySearch(list, target, mid+1, high)
+        p1 = 0
+        p2 = len(numbers)-1
+        while (numbers[p1]+numbers[p2] != target):
+            sum = numbers[p1]+numbers[p2]
+            if (sum < target):
+                p1+=1
             else:
-                return -1
-
-        length = len(numbers)
-        for i in range(length):
-            binarySearchResult = binarySearch(numbers, target - numbers[i], i+1, length -1)
-            if (binarySearchResult != -1):
-                return [i+1, binarySearchResult+1]
+                p2-=1
+        return [p1+1,p2+1]
 
 # @lc code=end
 
